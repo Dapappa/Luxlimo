@@ -1,6 +1,44 @@
-# Lux Limousine Service Website
+# Lux Limousine
 
-A luxury transportation service website built with Next.js, TypeScript, and Tailwind CSS. This modern, responsive website showcases the services offered by Lux Limousine with a stunning black and gold design theme.
+A premium limousine service website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Site Features
+
+- Responsive design for all devices
+- Modern UI with animations using Framer Motion
+- Luxury vehicle image carousel
+- Interactive gallery with filtering
+- Detailed service pages
+- Area coverage with interactive map views
+
+## Image Updates
+
+- Added luxury car images to the carousel (Bentley, Rolls Royce, Mercedes)
+- Integrated professional SUV and private jet images
+- Added destination photos for Alberta locations
+- Implemented gallery filtering by category
+
+## Development
+
+This is a Next.js project using TypeScript and Tailwind CSS.
+
+To run the development server:
+
+```bash
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Content
+
+All services, destinations and vehicle images have been optimized for web display. The site includes:
+
+- Home page with luxury vehicle carousel
+- Services page with detailed offerings
+- Gallery with high-quality vehicle and destination images
+- Areas We Serve section with interactive location details
+- Booking system for transportation requests
 
 ## Features
 
