@@ -61,7 +61,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-secondary-dark p-8 rounded-lg border border-gray-800">
+    <div className="bg-secondary-dark/70 backdrop-blur-sm p-8 rounded-lg border border-gray-800">
       {isSubmitted ? (
         <div className="text-center py-8">
           <svg

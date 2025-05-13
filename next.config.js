@@ -1,14 +1,18 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   /* config options here */
   images: {
-    domains: ["luxlimoservice.ca"],
+    domains: ["luxlimoservice.ca", "placehold.co"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "luxlimoservice.ca",
         pathname: "/wp-content/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        pathname: "/**",
       },
     ],
   },

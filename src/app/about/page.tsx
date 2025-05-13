@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -17,11 +18,14 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
           <div>
-            {/* Placeholder for an image - Would be replaced with actual image */}
-            <div className="aspect-video bg-secondary rounded-lg overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center text-primary">
-                <span className="text-lg">Luxury Fleet Image</span>
-              </div>
+            <div className="aspect-video bg-secondary rounded-lg overflow-hidden relative shadow-lg">
+              <Image
+                src="/images/Main logo image to use top left corner.webp"
+                alt="Lux Limousine Luxury Fleet"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
           </div>
 

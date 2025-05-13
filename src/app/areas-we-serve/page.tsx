@@ -18,7 +18,7 @@ export default function AreasWeServePage() {
         "Stampede Park",
         "All Calgary Hotels",
       ],
-      image: "/images/calgary-skyline.jpg",
+      image: "/images/calgary pic.png",
     },
     {
       name: "Edmonton",
@@ -30,7 +30,7 @@ export default function AreasWeServePage() {
         "West Edmonton Mall",
         "Rogers Place",
       ],
-      image: "/images/SUV night time plane strip.webp",
+      image: "/images/edmonton.png",
     },
     {
       name: "Banff",
@@ -42,7 +42,7 @@ export default function AreasWeServePage() {
         "Lake Minnewanka",
         "Banff Gondola",
       ],
-      image: "/images/banff-view.jpg",
+      image: "/images/Destinations Banff.jpg",
     },
     {
       name: "Canmore",
@@ -54,7 +54,7 @@ export default function AreasWeServePage() {
         "Three Sisters Mountains",
         "Downtown Canmore",
       ],
-      image: "/images/canmore-mountains.jpg",
+      image: "/images/Canmore Destinations.jpg",
     },
     {
       name: "Lake Louise",
@@ -66,7 +66,7 @@ export default function AreasWeServePage() {
         "Moraine Lake",
         "Plain of Six Glaciers",
       ],
-      image: "/images/lake-louise.jpg",
+      image: "/images/Lake Louise Trips.jpg",
     },
     {
       name: "Jasper",
@@ -78,7 +78,7 @@ export default function AreasWeServePage() {
         "Columbia Icefield",
         "Maligne Lake",
       ],
-      image: "/images/SUV and private jet.webp",
+      image: "/images/Executive Mercedes SUV.jpg",
     },
     {
       name: "Red Deer",
@@ -90,7 +90,7 @@ export default function AreasWeServePage() {
         "Heritage Ranch",
         "Canyon Ski Resort",
       ],
-      image: "/images/luxury-sedan.jpg",
+      image: "/images/strech limo fleet.webp",
     },
     {
       name: "Lethbridge",
@@ -102,7 +102,7 @@ export default function AreasWeServePage() {
         "Henderson Lake",
         "Fort Whoop-Up",
       ],
-      image: "/images/SUv Plane night shot.webp",
+      image: "/images/Van Picture.webp",
     },
   ];
 
@@ -145,6 +145,9 @@ export default function AreasWeServePage() {
                         src={location.image}
                         alt={location.name}
                         fill
+                        unoptimized={location.image.startsWith(
+                          "https://placehold.co"
+                        )}
                         className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
@@ -217,6 +220,9 @@ export default function AreasWeServePage() {
                       src={location.image}
                       alt={location.name}
                       fill
+                      unoptimized={location.image.startsWith(
+                        "https://placehold.co"
+                      )}
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>

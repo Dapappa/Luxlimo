@@ -14,7 +14,7 @@ const services = [
       "Comfortable, luxurious vehicles",
       "Available 24/7",
     ],
-    image: "/images/SUV night plane strip.webp",
+    image: "/images/Airport  pickup.png",
   },
   {
     id: "wedding-transportation",
@@ -28,7 +28,7 @@ const services = [
       "Special packages for entire wedding party",
       "Professional, formally attired chauffeurs",
     ],
-    image: "/images/wedding-limo.jpg",
+    image: "/images/wedding.png",
   },
   {
     id: "special-events",
@@ -42,7 +42,7 @@ const services = [
       "Professional, discrete service",
       "Flexible booking options",
     ],
-    image: "/images/concert-venue.jpg",
+    image: "/images/preium corpreate events.png",
   },
   {
     id: "corporate-travel",
@@ -56,7 +56,7 @@ const services = [
       "Airport meet and greet service",
       "Executive sedans and SUVs",
     ],
-    image: "/images/business-meeting.jpg",
+    image: "/images/SUV and private jet.webp",
   },
   {
     id: "events-charters",
@@ -70,7 +70,7 @@ const services = [
       "Customizable pickup and drop-off points",
       "Extended waiting time available",
     ],
-    image: "/images/Van Picture.webp",
+    image: "/images/SUV night time plane strip.webp",
   },
   {
     id: "out-of-town",
@@ -84,7 +84,7 @@ const services = [
       "Multiple stops available",
       "Scenic route options upon request",
     ],
-    image: "/images/lake-louise.jpg",
+    image: "/images/Destinations Banff.jpg",
   },
 ];
 
@@ -185,7 +185,7 @@ export default function ServicesPage() {
             <div className="hidden md:block">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
                 <Image
-                  src="/images/luxury-sedan.jpg"
+                  src="/images/S class fleet.jpeg"
                   alt="Custom Transportation"
                   fill
                   className="object-cover"

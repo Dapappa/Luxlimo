@@ -65,9 +65,8 @@ export default function Footer() {
               LUX <span className="font-bold">LIMOUSINE</span>
             </div>
             <p className="text-gray-300 text-sm">
-              Lux Limousine Calgary provides world-class luxury transportation
-              services throughout Alberta, including Calgary, Edmonton, Red
-              Deer, Banff, Canmore, and Lethbridge.
+              Lux Limousine provides premium luxury transportation services in
+              Chestermere and throughout Calgary and surrounding areas.
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
@@ -94,10 +93,12 @@ export default function Footer() {
               </p>
               <p className="text-sm">
                 Phone:{" "}
-                <a href="tel:4036058133" className="hover:text-primary">
-                  (403) 605-8133
+                <a href="tel:14036058133" className="hover:text-primary">
+                  1(403) 605-8133
                 </a>
               </p>
+              <p className="text-sm">Hours: Open Monday to Sunday, 24/7</p>
+              <p className="text-sm">Address: Chestermere, Alberta</p>
             </div>
             <div className="text-gray-300 text-sm">
               <p>Mastercard, Visa, American Express, and Debit card Accepted</p>

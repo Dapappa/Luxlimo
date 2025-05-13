@@ -8,7 +8,7 @@ const services = [
     title: "Airport Transfers",
     description:
       "Arrive in style with our premium airport transfer service. We offer punctual, comfortable transportation to and from all major airports in Alberta.",
-    image: "/images/SUV night plane strip.webp",
+    image: "/images/Airport  pickup.png",
     href: "/services#airport-transfers",
     icon: (
       <svg
@@ -32,7 +32,7 @@ const services = [
     title: "Special Events",
     description:
       "Make your special occasion truly memorable with our luxury transportation services for birthdays, anniversaries, concerts, and other celebrations.",
-    image: "/images/SUV and private jet.webp",
+    image: "/images/preium corpreate events.png",
     href: "/services#special-events",
     icon: (
       <svg
@@ -56,7 +56,7 @@ const services = [
     title: "Weddings",
     description:
       "Elevate your wedding day with our elegant limousine service. We ensure you arrive in luxury and style on your most important day.",
-    image: "/images/SUV and private jet 2.webp",
+    image: "/images/wedding.png",
     href: "/services#weddings",
     icon: (
       <svg
@@ -80,7 +80,7 @@ const services = [
     title: "Corporate Travel",
     description:
       "Impress clients and colleagues with our professional corporate transportation services, providing comfort and sophistication for business travel.",
-    image: "/images/SUV night time plane strip.webp",
+    image: "/images/SUV and private jet.webp",
     href: "/services#corporate-travel",
     icon: (
       <svg
@@ -104,7 +104,7 @@ const services = [
     title: "Events and Charters",
     description:
       "Perfect for group outings, our fleet can accommodate parties of all sizes for sporting events, concerts, theatre shows, and group excursions.",
-    image: "/images/Van Picture.webp",
+    image: "/images/SUV night time plane strip.webp",
     href: "/services#events-charters",
     icon: (
       <svg
@@ -128,7 +128,7 @@ const services = [
     title: "Out of Town Transfer",
     description:
       "Explore Alberta in comfort with our long-distance transportation services to popular destinations like Banff, Canmore, Lake Louise, and beyond.",
-    image: "/images/SUv Plane night shot.webp",
+    image: "/images/Destinations Banff.jpg",
     href: "/services#out-of-town",
     icon: (
       <svg
@@ -207,15 +207,16 @@ export default function Services() {
                     <div
                       className={`h-64 bg-gradient-to-br ${service.gradient} relative overflow-hidden`}
                     >
-                      {/* Conditional image rendering with fallback gradient */}
+                      {/* Image background */}
                       <div
-                        className="absolute inset-0 bg-black opacity-40"
+                        className="absolute inset-0 bg-cover bg-center"
                         style={{
                           backgroundImage: `url(${service.image})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
                         }}
                       />
+
+                      {/* Overlay for better text contrast */}
+                      <div className="absolute inset-0 bg-black opacity-40" />
 
                       {/* Animated shine effect */}
                       <motion.div
@@ -234,8 +235,8 @@ export default function Services() {
 
                       <motion.div
                         className="absolute inset-0 bg-black"
-                        initial={{ opacity: 0.6 }}
-                        whileHover={{ opacity: 0.3 }}
+                        initial={{ opacity: 0.3 }}
+                        whileHover={{ opacity: 0.1 }}
                         transition={{ duration: 0.3 }}
                       />
                     </div>

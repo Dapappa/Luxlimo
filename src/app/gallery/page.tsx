@@ -1,115 +1,144 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [category, setCategory] = useState<string | null>(null);
 
-  // Expanded gallery with all our images - remove logo images
+  // Debugging: log when component renders
+  useEffect(() => {
+    console.log("GalleryPage component rendered");
+  }, []);
+
+  // Gallery with actual images from our directory
   const galleryImages = [
-    // Existing SUV images
+    // Fleet category
+    {
+      src: "/images/Luxury Cadillac Escalade.webp",
+      title: "Luxury Cadillac Escalade",
+      category: "Fleet",
+    },
+    {
+      src: "/images/Executive Mercedes SUV.jpg",
+      title: "Executive Mercedes SUV",
+      category: "Fleet",
+    },
     {
       src: "/images/SUV and private jet.webp",
       title: "Luxury SUV with Private Jet",
       category: "Fleet",
     },
     {
-      src: "/images/SUV and private jet 2.webp",
-      title: "Executive SUV",
+      src: "/images/sprinter fleet.webp",
+      title: "Luxury Mercedes Sprinter",
       category: "Fleet",
     },
     {
-      src: "/images/SUv Plane night shot.webp",
+      src: "/images/S class fleet.jpeg",
+      title: "Luxury Mercedes S-Class",
+      category: "Fleet",
+    },
+    {
+      src: "/images/strech limo fleet.webp",
+      title: "Elegant Stretch Limousine",
+      category: "Fleet",
+    },
+    {
+      src: "/images/Van Picture.webp",
+      title: "Premium Interior Finishes",
+      category: "Fleet",
+    },
+
+    // Experience category
+    {
+      src: "/images/SUV night time plane strip.webp",
       title: "Night Airport Transfer",
       category: "Experience",
     },
     {
-      src: "/images/SUV night plane strip.webp",
+      src: "/images/Private airfeild.jpg",
       title: "Private Airfield Service",
       category: "Experience",
     },
     {
       src: "/images/SUv on p.webp",
-      title: "Luxury Tarmac Transport",
-      category: "Fleet",
-    },
-    {
-      src: "/images/SUV night time plane strip.webp",
       title: "Executive Airport Service",
       category: "Experience",
     },
+
+    // Events category
     {
-      src: "/images/Van Picture.webp",
-      title: "Luxury Group Transport",
-      category: "Fleet",
-    },
-    // Downloaded images
-    {
-      src: "/images/luxury-sedan.jpg",
-      title: "Luxury Sedan",
-      category: "Fleet",
-    },
-    {
-      src: "/images/stretch-limo.jpg",
-      title: "Stretch Limousine",
-      category: "Fleet",
-    },
-    {
-      src: "/images/party-limo-interior.jpg",
-      title: "Luxury Interior",
-      category: "Fleet",
-    },
-    {
-      src: "/images/wedding-limo.jpg",
-      title: "Wedding Transportation",
+      src: "/images/wedding.png",
+      title: "Elegant Wedding Transportation",
       category: "Events",
     },
     {
-      src: "/images/corporate-event.jpg",
-      title: "Corporate Events",
+      src: "/images/preium corpreate events.png",
+      title: "Premium Corporate Events",
       category: "Events",
     },
     {
-      src: "/images/concert-venue.jpg",
+      src: "/images/Busines travel.png",
       title: "Concert & Event Transportation",
       category: "Events",
     },
+
+    // Destinations category
     {
-      src: "/images/banff-view.jpg",
-      title: "Banff Excursions",
+      src: "/images/calgary pic.png",
+      title: "Calgary",
       category: "Destinations",
     },
     {
-      src: "/images/lake-louise.jpg",
-      title: "Lake Louise Trips",
+      src: "/images/edmonton.png",
+      title: "Edmonton",
       category: "Destinations",
     },
     {
-      src: "/images/canmore-mountains.jpg",
-      title: "Canmore Destinations",
+      src: "/images/Destinations Banff.jpg",
+      title: "Banff",
       category: "Destinations",
     },
     {
-      src: "/images/calgary-skyline.jpg",
-      title: "Calgary City Tours",
+      src: "/images/Canmore Destinations.jpg",
+      title: "Canmore",
       category: "Destinations",
     },
     {
-      src: "/images/airport-terminal.jpg",
-      title: "Airport Services",
+      src: "/images/Lake Louise Trips.jpg",
+      title: "Lake Louise",
+      category: "Destinations",
+    },
+
+    // Services category
+    {
+      src: "/images/Airport  pickup.png",
+      title: "Premium Airport Services",
       category: "Services",
     },
+
+    // Corporate category
     {
-      src: "/images/business-meeting.jpg",
-      title: "Business Travel",
+      src: "/images/Busines travel.png",
+      title: "Executive Business Travel",
       category: "Corporate",
     },
   ];
 
-  // Category filter options - remove Company category since we removed logo images
+  // Filter images based on selected category
+  const filteredImages = category
+    ? galleryImages.filter((image) => image.category === category)
+    : galleryImages;
+
+  useEffect(() => {
+    console.log("Filtered images count:", filteredImages.length);
+    console.log("First image path:", filteredImages[0]?.src);
+  }, [filteredImages]);
+
+  // Category filter options
   const categories = [
     { id: null, name: "All" },
     { id: "Fleet", name: "Our Fleet" },
@@ -119,11 +148,6 @@ export default function GalleryPage() {
     { id: "Services", name: "Services" },
     { id: "Corporate", name: "Corporate" },
   ];
-
-  // Filter images based on selected category
-  const filteredImages = category
-    ? galleryImages.filter((image) => image.category === category)
-    : galleryImages;
 
   return (
     <div className="bg-secondary-dark pt-32 pb-20">
@@ -157,33 +181,38 @@ export default function GalleryPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {filteredImages.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
-              onClick={() => setSelectedImage(image.src)}
-            >
-              <div className="aspect-square bg-secondary rounded-lg overflow-hidden relative cursor-pointer hover:scale-[1.02] transition-transform shadow-md">
-                <Image
-                  src={image.src}
-                  alt={image.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-start p-4">
-                  <div>
-                    <p className="text-primary font-medium">{image.category}</p>
-                    <h3 className="text-white text-lg font-bold">
-                      {image.title}
-                    </h3>
+          {filteredImages.map((image, index) => {
+            console.log(`Rendering image ${index}: ${image.src}`);
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <div className="aspect-square bg-secondary rounded-lg overflow-hidden relative cursor-pointer hover:scale-[1.02] transition-transform shadow-md">
+                  <Image
+                    src={image.src}
+                    alt={image.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-start p-4">
+                    <div>
+                      <p className="text-primary font-medium">
+                        {image.category}
+                      </p>
+                      <h3 className="text-white text-lg font-bold">
+                        {image.title}
+                      </h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Lightbox for fullscreen view */}

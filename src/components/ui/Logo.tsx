@@ -17,20 +17,22 @@ export default function Logo({ size = "medium", animated = true }: LogoProps) {
   };
 
   const imageSizes = {
-    small: { width: 100, height: 60 },
-    medium: { width: 150, height: 90 },
-    large: { width: 200, height: 120 },
+    small: { width: 110, height: 66 },
+    medium: { width: 165, height: 99 },
+    large: { width: 220, height: 132 },
   };
 
   const LogoContent = () => (
-    <div className={`flex flex-col items-center ${sizeClasses[size]}`}>
+    <div
+      className={`flex flex-col items-center justify-center ${sizeClasses[size]} mx-auto`}
+    >
       {/* Image Logo */}
       <Image
         src="/images/Main logo image to use top left corner.webp"
         alt="Lux Limousine"
         width={imageSizes[size].width}
         height={imageSizes[size].height}
-        className="object-contain"
+        className="object-contain rounded-lg"
         priority
       />
     </div>

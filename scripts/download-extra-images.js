@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const https = require("https");
+import fs from "fs";
+import path from "path";
+import https from "https";
 
 // Create images directory if it doesn't exist
 const imagesDir = path.join(process.cwd(), "public", "images");
@@ -55,7 +55,7 @@ const downloadLuxuryImages = async () => {
   for (const imageObj of luxuryImages) {
     try {
       await downloadImage(imageObj);
-    } catch (error) {
+    } catch {
       console.error(`Failed to download ${imageObj.filename}`);
     }
   }

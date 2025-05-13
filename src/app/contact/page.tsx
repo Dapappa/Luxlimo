@@ -1,9 +1,24 @@
+"use client";
+
 import ContactForm from "@/components/ui/ContactForm";
 
 export default function ContactPage() {
   return (
-    <div className="bg-secondary-dark pt-32 pb-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-secondary-dark pt-32 pb-20 relative overflow-hidden">
+      {/* Subtle video background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        >
+          <source src="/images/download.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">
             Contact <span className="text-primary">Us</span>
@@ -17,7 +32,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
-            <div className="bg-secondary-dark p-8 rounded-lg border border-gray-800 h-full">
+            <div className="bg-secondary-dark/80 backdrop-blur-sm p-8 rounded-lg border border-gray-800 h-full">
               <h3 className="text-2xl font-bold text-primary mb-6">
                 Get in Touch
               </h3>
@@ -42,8 +57,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-primary font-medium mb-1">Phone</h4>
-                    <p className="text-lg font-bold">(403) 605-8133</p>
-                    <p className="text-gray-400 text-sm">Available 24/7</p>
+                    <p className="text-lg font-bold">1(403) 605-8133</p>
+                    <p className="text-gray-400 text-sm">
+                      Open Monday to Sunday, 24/7
+                    </p>
                   </div>
                 </div>
 
@@ -97,14 +114,10 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-primary font-medium mb-1">
-                      Service Area
-                    </h4>
-                    <p className="text-lg font-bold">
-                      Calgary, Edmonton, Banff, Canmore
-                    </p>
+                    <h4 className="text-primary font-medium mb-1">Location</h4>
+                    <p className="text-lg font-bold">Chestermere, Alberta</p>
                     <p className="text-gray-400 text-sm">
-                      Serving all of Alberta
+                      Serving Calgary and surrounding areas
                     </p>
                   </div>
                 </div>
@@ -145,7 +158,9 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <ContactForm />
+            <div className="bg-secondary-dark/80 backdrop-blur-sm rounded-lg">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </div>

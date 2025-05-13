@@ -12,43 +12,33 @@ export default function ImageCarousel({ interval = 5000 }: ImageCarouselProps) {
   const images = [
     {
       src: "/images/SUV and private jet.webp",
-      alt: "Luxury SUV with private jet",
-    },
-    {
-      src: "/images/SUV and private jet 2.webp",
-      alt: "Luxury SUV with private jet at night",
-    },
-    {
-      src: "/images/SUv Plane night shot.webp",
-      alt: "Luxury SUV at night with airplane",
+      alt: "SUV and Private Jet",
+      isExternal: false,
     },
     {
       src: "/images/SUV night plane strip.webp",
-      alt: "Luxury SUV at airfield strip",
+      alt: "SUV Night Airport",
+      isExternal: false,
     },
     {
-      src: "/images/SUv on p.webp",
-      alt: "Luxury SUV on private jet tarmac",
+      src: "/images/wedding.png",
+      alt: "Wedding Transportation",
+      isExternal: false,
     },
     {
-      src: "/images/SUV night time plane strip.webp",
-      alt: "Luxury SUV at night airport",
+      src: "/images/Destinations Banff.jpg",
+      alt: "Banff Destinations",
+      isExternal: false,
     },
     {
-      src: "/images/Van Picture.webp",
-      alt: "Luxury Van for group transportation",
+      src: "/images/Lake Louise Trips.jpg",
+      alt: "Lake Louise Trips",
+      isExternal: false,
     },
     {
-      src: "/images/luxury-bentley.jpg",
-      alt: "Luxury Bentley automobile",
-    },
-    {
-      src: "/images/luxury-rolls-royce.jpg",
-      alt: "Prestigious Rolls Royce Phantom",
-    },
-    {
-      src: "/images/luxury-mercedes.jpg",
-      alt: "Elegant Mercedes Benz luxury vehicle",
+      src: "/images/carousel/cadillac-escalade.webp",
+      alt: "Luxury Cadillac Escalade",
+      isExternal: false,
     },
   ];
 
@@ -91,6 +81,7 @@ export default function ImageCarousel({ interval = 5000 }: ImageCarouselProps) {
             alt={images[currentIndex].alt}
             fill
             priority
+            unoptimized={images[currentIndex].isExternal}
             className="object-cover"
           />
         </motion.div>
