@@ -11,7 +11,7 @@
 
 html,
 body {
-  cursor: url("/images/limo-cursor.svg") 0 0, auto;
+  cursor: url("/images/limo-cursor.svg") 8 8, auto;
 }
 
 body {
@@ -33,7 +33,7 @@ input[type="submit"],
 input[type="button"],
 select,
 option {
-  cursor: url("/images/limo-cursor-pointer.svg") 12 12, pointer;
+  cursor: url("/images/limo-cursor-pointer.svg") 16 16, pointer;
 }
 
 @layer base {
