@@ -9,6 +9,11 @@
   --color-primary-rgb: 212, 175, 55; /* Gold color in RGB */
 }
 
+html,
+body {
+  cursor: url("/images/limo-cursor.svg") 0 0, auto;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -18,6 +23,17 @@ body {
     )
     rgb(var(--background-start-rgb));
   min-height: 100vh;
+}
+
+/* Custom cursor for clickable elements */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+select,
+option {
+  cursor: url("/images/limo-cursor-pointer.svg") 12 12, pointer;
 }
 
 @layer base {
