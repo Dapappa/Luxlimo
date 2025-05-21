@@ -155,10 +155,26 @@ export default function AreasWeServePage() {
   ];
 
   return (
-    <div className="bg-secondary-dark pt-32 pb-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">
+    <div className="bg-secondary-dark">
+      {/* Hero Section with Video Background */}
+      <div className="relative min-h-[60vh] flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <div className="relative h-full w-full overflow-hidden">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute w-full h-full object-cover"
+            >
+              <source src="/images/Generated File May 20, 2025 - 7_18PM.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 z-10" />
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-20 text-center">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">
             Areas We <span className="text-primary">Serve</span>
           </h1>
           <p className="text-gray-300 max-w-3xl mx-auto">
@@ -167,7 +183,10 @@ export default function AreasWeServePage() {
             we&apos;ve got you covered in style.
           </p>
         </div>
+      </div>
 
+      {/* Location Grid and Details */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="max-w-6xl mx-auto">
           {selectedLocation ? (
             // Detailed view of a selected location

@@ -209,7 +209,7 @@ export default function ToursAndExperiencesPage() {
               playsInline
               className="absolute w-full h-full object-cover"
             >
-              <source src="https://player.vimeo.com/external/370331493.sd.mp4?s=e90dcaba73c19e0e36f03406b47b5e33cd8b7688&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+              <source src="/images/Generated File May 20, 2025 - 7_18PM.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 z-10" />
           </div>
