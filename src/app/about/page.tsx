@@ -23,7 +23,7 @@ export default function AboutPage() {
                 src="/images/Main logo image to use top left corner.webp"
                 alt="Lux Limousine Luxury Fleet"
                 fill
-                className="object-cover"
+                className="object-contain p-4"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
