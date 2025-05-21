@@ -26,8 +26,8 @@ export default function ImageCarousel({ interval = 5000 }: ImageCarouselProps) {
       isExternal: false,
     },
     {
-      src: "/images/Destinations Banff.jpg",
-      alt: "Banff Destinations",
+      src: "/images/banff-mountains.jpg",
+    alt: "Banff Mountains",
       isExternal: false,
     },
     {

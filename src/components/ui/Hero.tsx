@@ -284,7 +284,7 @@ export default function Hero() {
               {
                 title: "Out of Town Transfer",
                 href: "/services#out-of-town",
-                image: "/images/Destinations Banff.jpg",
+                image: "/images/banff-mountains.jpg",
                 color: "from-cyan-800",
                 description:
                   "Travel to Banff, Canmore, Lake Louise and beyond in style",

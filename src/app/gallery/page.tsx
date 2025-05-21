@@ -98,8 +98,8 @@ export default function GalleryPage() {
       category: "Destinations",
     },
     {
-      src: "/images/Destinations Banff.jpg",
-      title: "Banff",
+      src: "/images/banff-mountains.jpg",
+      title: "Banff Mountains",
       category: "Destinations",
     },
     {

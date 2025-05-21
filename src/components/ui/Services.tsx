@@ -128,7 +128,7 @@ const services = [
     title: "Out of Town Transfer",
     description:
       "Explore Alberta in comfort with our long-distance transportation services to popular destinations like Banff, Canmore, Lake Louise, and beyond.",
-    image: "/images/Destinations Banff.jpg",
+    image: "/images/banff-mountains.jpg",
     href: "/services#out-of-town",
     icon: (
       <svg

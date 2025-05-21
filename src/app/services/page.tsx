@@ -84,7 +84,7 @@ const services = [
       "Multiple stops available",
       "Scenic route options upon request",
     ],
-    image: "/images/Destinations Banff.jpg",
+    image: "/images/banff-mountains.jpg",
   },
 ];
 

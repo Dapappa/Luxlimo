@@ -42,7 +42,7 @@ export default function AreasWeServePage() {
         "Lake Minnewanka",
         "Banff Gondola",
       ],
-      image: "/images/Destinations Banff.jpg",
+      image: "/images/banff-mountains.jpg",
     },
     {
       name: "Canmore",
