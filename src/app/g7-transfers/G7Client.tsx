@@ -14,7 +14,10 @@ export default function G7Client() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-25"
           >
-            <source src="Banff_Video_Ready_http_Link.mp4" type="video/mp4" />
+            <source
+              src="https://luxlimoservice.ca/banff-video.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 
