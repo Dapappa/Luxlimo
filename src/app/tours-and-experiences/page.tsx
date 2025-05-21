@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
