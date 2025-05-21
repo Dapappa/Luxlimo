@@ -3,8 +3,22 @@ import * as fs from "fs";
 import * as path from "path";
 import { execSync } from "child_process";
 
-// Configuration
-const API_KEY = "AIzaSyB-iPLUgI2khLqzx8oR4jlMjwWZresicYg";
+// Configuration - Use environment variable, don't hardcode key
+const API_KEY = process.env.GEMINI_API_KEY;
+
+// Skip image generation during build process
+if (!API_KEY && process.env.NODE_ENV === "production") {
+  console.log(
+    "Skipping image generation during build process - no API key available"
+  );
+  process.exit(0); // Exit successfully to not break build
+}
+
+if (!API_KEY) {
+  console.log("Warning: No GEMINI_API_KEY environment variable found.");
+  process.exit(0); // Exit successfully to not break build
+}
+
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 // Define the southern-alberta image that failed previously

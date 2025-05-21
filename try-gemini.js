@@ -2,8 +2,22 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import fs from "fs";
 
 async function main() {
-  // Use the API key directly as provided by the user
-  const apiKey = "AIzaSyB-iPLUgI2khLqzx8oR4jlMjwWZresicYg";
+  // Use environment variable, don't hardcode key
+  const apiKey = process.env.GEMINI_API_KEY;
+
+  // Skip during build process
+  if (!apiKey && process.env.NODE_ENV === "production") {
+    console.log(
+      "Skipping image generation during build process - no API key available"
+    );
+    return; // Exit successfully to not break build
+  }
+
+  if (!apiKey) {
+    console.log("Warning: No GEMINI_API_KEY environment variable found.");
+    return; // Exit successfully to not break build
+  }
+
   const genAI = new GoogleGenerativeAI(apiKey);
 
   const contents =

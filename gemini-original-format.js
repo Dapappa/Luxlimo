@@ -3,13 +3,29 @@ import * as fs from "fs";
 // First attempt to use the exact package and format the user provided
 async function attemptOriginalFormat() {
   try {
+    // Get API key from environment variable
+    const apiKey = process.env.GEMINI_API_KEY;
+
+    // Skip during build process
+    if (!apiKey && process.env.NODE_ENV === "production") {
+      console.log(
+        "Skipping image generation during build process - no API key available"
+      );
+      return false; // Exit successfully to not break build
+    }
+
+    if (!apiKey) {
+      console.log("Warning: No GEMINI_API_KEY environment variable found.");
+      return false; // Exit successfully to not break build
+    }
+
     // Dynamically import the package to avoid syntax errors if it doesn't exist
     const { GoogleGenAI, Modality } = await import("@google/genai");
 
     console.log("Successfully imported @google/genai package");
 
     const ai = new GoogleGenAI({
-      apiKey: "AIzaSyB-iPLUgI2khLqzx8oR4jlMjwWZresicYg",
+      apiKey: apiKey,
     });
 
     const contents =
@@ -51,13 +67,27 @@ async function attemptOriginalFormat() {
 // Fallback to the new format if the original fails
 async function attemptNewFormat() {
   try {
+    // Get API key from environment variable
+    const apiKey = process.env.GEMINI_API_KEY;
+
+    // Skip during build process
+    if (!apiKey && process.env.NODE_ENV === "production") {
+      console.log(
+        "Skipping image generation during build process - no API key available"
+      );
+      return false; // Exit successfully to not break build
+    }
+
+    if (!apiKey) {
+      console.log("Warning: No GEMINI_API_KEY environment variable found.");
+      return false; // Exit successfully to not break build
+    }
+
     const { GoogleGenerativeAI } = await import("@google/generative-ai");
 
     console.log("Attempting with new API format...");
 
-    const genAI = new GoogleGenerativeAI(
-      "AIzaSyB-iPLUgI2khLqzx8oR4jlMjwWZresicYg"
-    );
+    const genAI = new GoogleGenerativeAI(apiKey);
 
     const contents =
       "Hi, can you create a 3d rendered image of a pig " +
