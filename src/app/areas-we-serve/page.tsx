@@ -81,6 +81,42 @@ export default function AreasWeServePage() {
       image: "/images/locations/jasper-national-park.jpg",
     },
     {
+      name: "Waterton Lakes",
+      description:
+        "Experience the spectacular beauty where the mountains meet the prairies with our luxury transportation to this unique UNESCO World Heritage Site.",
+      landmarks: [
+        "Waterton Lakes National Park",
+        "Prince of Wales Hotel",
+        "Cameron Falls",
+        "Red Rock Canyon",
+      ],
+      image: "/images/locations/waterton-lakes.jpg",
+    },
+    {
+      name: "Elk Island",
+      description:
+        "Visit this sanctuary of aspen parkland and home to free-roaming bison with our comfortable transportation services just east of Edmonton.",
+      landmarks: [
+        "Elk Island National Park",
+        "Astotin Lake",
+        "Bison Loop Road",
+        "Beaver Pond Trail",
+      ],
+      image: "/images/locations/elk-island.jpg",
+    },
+    {
+      name: "Kananaskis",
+      description:
+        "Explore this stunning provincial park system with pristine wilderness areas and recreational opportunities through our premium transportation service.",
+      landmarks: [
+        "Kananaskis Country",
+        "Nakiska Ski Resort",
+        "Kananaskis Village",
+        "Peter Lougheed Provincial Park",
+      ],
+      image: "/images/locations/kananaskis.jpg",
+    },
+    {
       name: "Red Deer",
       description:
         "Central Alberta's major urban centre, our services cover all transportation needs in and around Red Deer.",
@@ -111,7 +147,10 @@ export default function AreasWeServePage() {
     { from: "Calgary", to: "Lake Louise", duration: "Approximately 2 hours" },
     { from: "Calgary", to: "Edmonton", duration: "Approximately 3 hours" },
     { from: "Calgary", to: "Canmore", duration: "Approximately 1 hour" },
+    { from: "Calgary", to: "Kananaskis", duration: "Approximately 1 hour" },
+    { from: "Calgary", to: "Waterton Lakes", duration: "Approximately 2.5 hours" },
     { from: "Edmonton", to: "Jasper", duration: "Approximately 4 hours" },
+    { from: "Edmonton", to: "Elk Island", duration: "Approximately 45 minutes" },
     { from: "Banff", to: "Lake Louise", duration: "Approximately 40 minutes" },
   ];
 
