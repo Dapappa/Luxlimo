@@ -138,7 +138,7 @@ export default function AreasWeServePage() {
         "Henderson Lake",
         "Fort Whoop-Up",
       ],
-      image: "/images/locations/lethbridge-nikka-yuko.jpg",
+      image: "/images/locations/lethbridge-high-level-bridge.jpg",
     },
   ];
 
@@ -148,9 +148,17 @@ export default function AreasWeServePage() {
     { from: "Calgary", to: "Edmonton", duration: "Approximately 3 hours" },
     { from: "Calgary", to: "Canmore", duration: "Approximately 1 hour" },
     { from: "Calgary", to: "Kananaskis", duration: "Approximately 1 hour" },
-    { from: "Calgary", to: "Waterton Lakes", duration: "Approximately 2.5 hours" },
+    {
+      from: "Calgary",
+      to: "Waterton Lakes",
+      duration: "Approximately 2.5 hours",
+    },
     { from: "Edmonton", to: "Jasper", duration: "Approximately 4 hours" },
-    { from: "Edmonton", to: "Elk Island", duration: "Approximately 45 minutes" },
+    {
+      from: "Edmonton",
+      to: "Elk Island",
+      duration: "Approximately 45 minutes",
+    },
     { from: "Banff", to: "Lake Louise", duration: "Approximately 40 minutes" },
   ];
 
@@ -167,7 +175,10 @@ export default function AreasWeServePage() {
               playsInline
               className="absolute w-full h-full object-cover"
             >
-              <source src="/images/Generated File May 20, 2025 - 7_18PM.mp4" type="video/mp4" />
+              <source
+                src="/images/Generated File May 20, 2025 - 7_18PM.mp4"
+                type="video/mp4"
+              />
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 z-10" />
           </div>
