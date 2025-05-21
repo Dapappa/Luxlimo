@@ -64,73 +64,73 @@ const heritageAttractions = [
   {
     title: "Bomber Command Museum",
     town: "Nanton",
-    image: "https://images.unsplash.com/photo-1531769349486-52e16d08a2e8?w=800",
+    icon: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
     url: "https://www.bombercommandmuseum.ca",
   },
   {
     title: "Bar U Ranch National Historic Site",
     town: "Longview",
-    image: "https://images.unsplash.com/photo-1500076656116-558758c991c1?w=800",
+    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
     url: "https://parks.canada.ca/lhn-nhs/ab/baru",
   },
   {
     title: "Vulcan Tourism & Trek Station",
     town: "Vulcan",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
     url: "https://www.vulcantourism.com",
   },
   {
     title: "Head-Smashed-In Buffalo Jump",
     town: "Fort Macleod",
-    image: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800",
+    icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
     url: "https://headsmashedin.ca",
   },
   {
     title: "Fort Macleod NWMP Museum",
     town: "Fort Macleod",
-    image: "https://images.unsplash.com/photo-1572297999114-3e295f730d93?w=800",
+    icon: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z",
     url: "https://www.nwmpmuseum.com",
   },
   {
     title: "Lundbreck Falls",
     town: "Crowsnest River",
-    image: "https://images.unsplash.com/photo-1454982523318-4b6396f39d3a?w=800",
+    icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     url: "#",
   },
   {
     title: "Bellevue Underground Mine",
     town: "Bellevue",
-    image: "https://images.unsplash.com/photo-1597075433537-b12b35e5bc43?w=800",
+    icon: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z",
     url: "https://www.bellevuemine.com",
   },
   {
     title: "Frank Slide Interpretive Centre",
     town: "Frank",
-    image: "https://images.unsplash.com/photo-1596884005406-8404deee2d65?w=800",
+    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     url: "https://www.frankslide.ca",
   },
   {
     title: "Remington Carriage Museum",
     town: "Cardston",
-    image: "https://images.unsplash.com/photo-1621416894569-80f91633a994?w=800",
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
     url: "https://www.remingtoncarriagemuseum.ca",
   },
   {
     title: "Waterton Lakes National Park",
     town: "Waterton",
-    image: "https://images.unsplash.com/photo-1489619243109-4e0ea59cfe10?w=800",
+    icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
     url: "https://parks.canada.ca/pn-np/ab/waterton",
   },
   {
     title: "Nikka Yuko Japanese Garden",
     town: "Lethbridge",
-    image: "https://images.unsplash.com/photo-1546405755-c65633b50d19?w=800",
+    icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
     url: "https://www.nikkayuko.com",
   },
   {
     title: "Fort Whoop-Up",
     town: "Lethbridge",
-    image: "https://images.unsplash.com/photo-1561387381-9f8b3bdc95a3?w=800",
+    icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z",
     url: "https://www.lethbridge.ca/arts-culture-events/attractions/fort-whoop-up",
   },
 ];
@@ -360,15 +360,20 @@ export default function ToursAndExperiencesPage() {
                       rel="noopener noreferrer"
                       className="block rounded-lg overflow-hidden shadow-md border border-primary/10 transform transition-all duration-300 hover:scale-105 hover:shadow-glow-lg group"
                     >
-                      <div className="relative h-36 overflow-hidden">
-                        <Image
-                          src={attraction.image}
-                          alt={attraction.title}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 33vw"
-                          className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                      <div className="relative h-36 flex items-center justify-center bg-secondary-light">
+                        <svg
+                          className="h-12 w-12 text-primary"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={1.5}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d={attraction.icon}
+                          />
+                        </svg>
                       </div>
                       <div className="p-3 bg-secondary-light">
                         <h4 className="text-sm font-medium text-white truncate">
