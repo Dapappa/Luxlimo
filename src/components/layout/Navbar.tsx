@@ -11,6 +11,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "Tours & Experiences", href: "/tours-and-experiences" },
   { name: "Areas We Serve", href: "/areas-we-serve" },
   { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
