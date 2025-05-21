@@ -13,7 +13,7 @@ This document explains how to use the image generation script to create professi
 1. Make sure you have the Gemini API client installed:
 
 ```bash
-npm install @google/genai
+npm install @google/generative-ai
 ```
 
 2. Set your Gemini API key as an environment variable:
