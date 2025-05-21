@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# image generation
+generate-images.js
+test-image-generation.js
+download-images.js
+generate-gemini-images.js
+try-gemini.js
+gemini-*-image.png
+generate-single-image.js
+list-models.js
+IMAGE-GENERATION.md
+IMAGE-GENERATION-ENV.md

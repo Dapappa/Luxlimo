@@ -7,4 +7,25 @@
 
 [build.environment]
   NEXT_USE_NETLIFY_EDGE = "true"
-  NODE_VERSION = "18" 
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps --force"
+
+# Adding a prebuild command to create a temporary wrapper package
+[build.lifecycle]
+  onPreBuild = """
+  cp .npmrc . && 
+  mkdir -p ./node_modules/@google/genai && 
+  echo '{
+    "name": "@google/genai",
+    "version": "0.1.0",
+    "main": "../generative-ai/dist/index.js",
+    "types": "../generative-ai/dist/index.d.ts",
+    "license": "MIT"
+  }' > ./node_modules/@google/genai/package.json
+  """
+
+# Fix for the npm error code ETARGET with @google/genai
+[build.processing.npm]
+  [[build.processing.npm.alias]]
+    from = "@google/genai@^0.1.0"
+    to = "@google/generative-ai@^0.1.3" 
