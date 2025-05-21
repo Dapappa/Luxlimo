@@ -25,7 +25,7 @@ const heritageSchema = {
   "@context": "https://schema.org",
   "@type": "TouristTrip",
   "name": "Southern Alberta Heritage Loop",
-  "description": "A luxury heritage tour exploring Southern Alberta's cultural and historical sites including museums, national historic sites, and natural attractions.",
+  "description": "A luxury heritage tour exploring Southern Alberta&apos;s cultural and historical sites including museums, national historic sites, and natural attractions.",
   "touristType": ["History Buffs", "Culture Enthusiasts", "Photographers"],
   "offers": {
     "@type": "Offer",
@@ -451,7 +451,7 @@ export default function ToursAndExperiencesPage() {
               
               <div className="space-y-6 text-gray-300">
                 <p>
-                  At Lux Limousine, we transform ordinary journeys into extraordinary experiences. Our luxury tours combine elegance, comfort, and personalized service to create unforgettable memories of Alberta's most breathtaking destinations.
+                  At Lux Limousine, we transform ordinary journeys into extraordinary experiences. Our luxury tours combine elegance, comfort, and personalized service to create unforgettable memories of Alberta&apos;s most breathtaking destinations.
                 </p>
                 
                 <ul className="space-y-3">
@@ -498,7 +498,7 @@ export default function ToursAndExperiencesPage() {
                   {testimonials.map((testimonial, index) => (
                     <div 
                       key={index} 
-                      className={`${index < testimonials.length - 1 ? 'border-b border-gray-800 pb-8' : ''}`}
+                      className={`${index < testimonials.length - 1 ? "border-b border-gray-800 pb-8" : ""}`}
                     >
                       <p className="italic text-gray-300 mb-4">{testimonial.text}</p>
                       <p className="text-primary font-medium">{testimonial.author}</p>
