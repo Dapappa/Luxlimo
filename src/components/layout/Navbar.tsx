@@ -2,7 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import Logo from "@/components/ui/Logo";
@@ -18,7 +22,7 @@ const primaryNavigation = [
 // Secondary navigation items that will go in the dropdown
 const secondaryNavigation = [
   { name: "Tours & Experiences", href: "/tours-and-experiences" },
-  { name: "G7 Summit Transfers", href: "/g7-transfers" },
+  { name: "G7 Summit Transfers", href: "/g7" }, // Changed to shorter URL for better compatibility
   { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ];
@@ -38,14 +42,17 @@ export default function Navbar() {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setDropdownOpen(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("mousedown", handleClickOutside);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousedown", handleClickOutside);
@@ -162,7 +169,7 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              
+
               {/* Mobile: Show secondary navigation directly */}
               {secondaryNavigation.map((item) => (
                 <Link
@@ -174,7 +181,7 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              
+
               <Link
                 href="/booking"
                 onClick={() => setIsOpen(false)}
