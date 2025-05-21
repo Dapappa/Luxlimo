@@ -18,7 +18,7 @@ export default function AreasWeServePage() {
         "Stampede Park",
         "All Calgary Hotels",
       ],
-      image: "/images/calgary pic.png",
+      image: "/images/locations/calgary-skyline.jpg",
     },
     {
       name: "Edmonton",
@@ -30,7 +30,7 @@ export default function AreasWeServePage() {
         "West Edmonton Mall",
         "Rogers Place",
       ],
-      image: "/images/edmonton.png",
+      image: "/images/locations/edmonton-skyline.jpg",
     },
     {
       name: "Banff",
@@ -42,7 +42,7 @@ export default function AreasWeServePage() {
         "Lake Minnewanka",
         "Banff Gondola",
       ],
-      image: "/images/banff-mountains.jpg",
+      image: "/images/locations/banff-mountains.jpg",
     },
     {
       name: "Canmore",
@@ -54,7 +54,7 @@ export default function AreasWeServePage() {
         "Three Sisters Mountains",
         "Downtown Canmore",
       ],
-      image: "/images/Canmore Destinations.jpg",
+      image: "/images/locations/canmore-engine-bridge.jpg",
     },
     {
       name: "Lake Louise",
@@ -66,7 +66,7 @@ export default function AreasWeServePage() {
         "Moraine Lake",
         "Plain of Six Glaciers",
       ],
-      image: "/images/Lake Louise Trips.jpg",
+      image: "/images/locations/lake-louise.jpg",
     },
     {
       name: "Jasper",
@@ -78,7 +78,7 @@ export default function AreasWeServePage() {
         "Columbia Icefield",
         "Maligne Lake",
       ],
-      image: "/images/Executive Mercedes SUV.jpg",
+      image: "/images/locations/jasper-national-park.jpg",
     },
     {
       name: "Red Deer",
@@ -90,7 +90,7 @@ export default function AreasWeServePage() {
         "Heritage Ranch",
         "Canyon Ski Resort",
       ],
-      image: "/images/strech limo fleet.webp",
+      image: "/images/locations/red-deer-city.jpg",
     },
     {
       name: "Lethbridge",
@@ -102,7 +102,7 @@ export default function AreasWeServePage() {
         "Henderson Lake",
         "Fort Whoop-Up",
       ],
-      image: "/images/Van Picture.webp",
+      image: "/images/locations/lethbridge-nikka-yuko.jpg",
     },
   ];
 
