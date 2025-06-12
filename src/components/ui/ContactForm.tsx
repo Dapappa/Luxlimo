@@ -2,8 +2,14 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-// Import emailjs only when we have actual credentials to use
-// import emailjs from "emailjs-com";
+import emailjs from "emailjs-com";
+import { 
+  EMAILJS_SERVICE_ID, 
+  EMAILJS_TEMPLATE_ID_CONTACT, 
+  EMAILJS_PUBLIC_KEY, 
+  CONTACT_EMAIL,
+  BUSINESS_NAME 
+} from "@/config/env";
 
 type FormData = {
   name: string;
@@ -29,32 +35,58 @@ export default function ContactForm() {
     setError("");
 
     try {
-      // Log the data to console for development
-      console.log("Form submitted with data:", data);
+      // Prepare the email template parameters with professional formatting
+      const templateParams = {
+        // Email metadata
+        to_email: CONTACT_EMAIL,
+        from_name: data.name,
+        reply_to: data.email,
+        subject: `New Contact Inquiry - ${BUSINESS_NAME}`,
+        
+        // Customer information
+        customer_name: data.name,
+        customer_email: data.email,
+        customer_phone: data.phone || "Not provided",
+        
+        // Message content
+        message: data.message,
+        
+        // Professional email formatting
+        business_name: BUSINESS_NAME,
+        inquiry_type: "General Contact",
+        submission_date: new Date().toLocaleDateString("en-CA", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          timeZone: "America/Edmonton"
+        }),
+        
+        // Professional footer information
+        website: "https://luxlimoservice.ca",
+        email_footer: `This inquiry was submitted through the ${BUSINESS_NAME} website contact form.`,
+        
+        // Follow-up instructions
+        follow_up_instructions: `Please respond to this customer inquiry promptly. Customer contact details:\n• Email: ${data.email}\n• Phone: ${data.phone || "Not provided"}\n• Preferred contact method: Email`,
+      };
 
-      // This is where you'd normally configure your EmailJS with actual service/template IDs
-      // You'll need to sign up for EmailJS and create a template
-      // const templateParams = {
-      //   from_name: data.name,
-      //   reply_to: data.email,
-      //   phone: data.phone,
-      //   message: data.message,
-      //   to_email: "luxlimocontact@gmail.com" // The recipient email as specified
-      // };
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID_CONTACT,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
 
-      // This is a placeholder - you need to replace with real EmailJS credentials
-      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID');
-
-      // For now, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
+      console.log("Contact form submitted successfully:", data);
       setIsSubmitted(true);
       reset();
     } catch (error) {
       setError(
-        "An error occurred while sending your message. Please try again later."
+        "An error occurred while sending your message. Please try again later or contact us directly at " + CONTACT_EMAIL
       );
-      console.error("Error sending email:", error);
+      console.error("Error sending contact email:", error);
     } finally {
       setIsSubmitting(false);
     }

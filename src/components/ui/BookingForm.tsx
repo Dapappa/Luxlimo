@@ -2,8 +2,14 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-// Import emailjs only when we have actual credentials to use
-// import emailjs from "emailjs-com";
+import emailjs from "emailjs-com";
+import { 
+  EMAILJS_SERVICE_ID, 
+  EMAILJS_TEMPLATE_ID_BOOKING, 
+  EMAILJS_PUBLIC_KEY, 
+  CONTACT_EMAIL,
+  BUSINESS_NAME 
+} from "@/config/env";
 
 type FormData = {
   name: string;
@@ -44,38 +50,114 @@ export default function BookingForm() {
     setError("");
 
     try {
-      // Log the data to console for development
-      console.log("Booking submitted with data:", data);
+      // Format the service date and time for professional presentation
+      const serviceDateTime = new Date(`${data.date}T${data.time}`);
+      const formattedServiceDate = serviceDateTime.toLocaleDateString("en-CA", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+      const formattedServiceTime = serviceDateTime.toLocaleTimeString("en-CA", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+      });
 
-      // This is where you'd normally configure your EmailJS with actual service/template IDs
-      // You'll need to sign up for EmailJS and create a template
-      // const templateParams = {
-      //   from_name: data.name,
-      //   reply_to: data.email,
-      //   phone: data.phone,
-      //   date: data.date,
-      //   time: data.time,
-      //   pickup: data.pickup,
-      //   dropoff: data.dropoff,
-      //   passengers: data.passengers,
-      //   vehicle: data.vehicle,
-      //   special_requests: data.specialRequests,
-      //   to_email: "luxlimocontact@gmail.com" // The recipient email as specified
-      // };
+      // Prepare the email template parameters with professional booking formatting
+      const templateParams = {
+        // Email metadata
+        to_email: CONTACT_EMAIL,
+        from_name: data.name,
+        reply_to: data.email,
+        subject: `🚗 New Luxury Transportation Booking Request - ${BUSINESS_NAME}`,
+        
+        // Customer information
+        customer_name: data.name,
+        customer_email: data.email,
+        customer_phone: data.phone,
+        
+        // Service details
+        service_date: formattedServiceDate,
+        service_time: formattedServiceTime,
+        pickup_location: data.pickup,
+        dropoff_location: data.dropoff,
+        passenger_count: data.passengers,
+        vehicle_type: data.vehicle,
+        special_requests: data.specialRequests || "None specified",
+        
+        // Professional email formatting
+        business_name: BUSINESS_NAME,
+        inquiry_type: "Luxury Transportation Booking",
+        submission_date: new Date().toLocaleDateString("en-CA", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          timeZone: "America/Edmonton"
+        }),
+        
+        // Booking summary for easy reference
+        booking_summary: `📋 BOOKING SUMMARY:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 Customer: ${data.name}
+📧 Email: ${data.email}
+📱 Phone: ${data.phone}
+📅 Service Date: ${formattedServiceDate}
+🕐 Service Time: ${formattedServiceTime}
+📍 Pickup: ${data.pickup}
+🎯 Dropoff: ${data.dropoff}
+👥 Passengers: ${data.passengers}
+🚗 Vehicle: ${data.vehicle}
+💬 Special Requests: ${data.specialRequests || "None"}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+        
+        // Professional footer information
+        website: "https://luxlimoservice.ca",
+        email_footer: `This booking request was submitted through the ${BUSINESS_NAME} website booking form.`,
+        
+        // Follow-up instructions
+        follow_up_instructions: `🔔 URGENT: New booking request requires immediate attention!
 
-      // This is a placeholder - you need to replace with real EmailJS credentials
-      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID');
+📞 NEXT STEPS:
+1. Contact customer within 2 hours to confirm availability
+2. Provide quote and booking confirmation
+3. Send follow-up email with service details
 
-      // For now, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+📋 CUSTOMER CONTACT DETAILS:
+• Primary Email: ${data.email}
+• Phone: ${data.phone}
+• Preferred contact method: Phone for immediate confirmation
 
+⚠️ SERVICE REQUIREMENTS:
+• Date: ${formattedServiceDate}
+• Time: ${formattedServiceTime}
+• Vehicle: ${data.vehicle}
+• Passengers: ${data.passengers}
+
+${data.specialRequests ? `🎯 SPECIAL REQUIREMENTS: ${data.specialRequests}` : ''}`,
+        
+        // Service urgency indicator
+        booking_urgency: serviceDateTime < new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) ? "HIGH PRIORITY - Within 7 days" : "STANDARD PRIORITY"
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID_BOOKING,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      console.log("Booking submitted successfully:", data);
       setIsSubmitted(true);
       reset();
     } catch (error) {
       setError(
-        "An error occurred while processing your booking. Please try again later or contact us directly."
+        "An error occurred while processing your booking. Please try again later or contact us directly at " + CONTACT_EMAIL + " or call (403) 605-8133"
       );
-      console.error("Error sending booking:", error);
+      console.error("Error sending booking email:", error);
     } finally {
       setIsSubmitting(false);
     }
