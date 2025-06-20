@@ -8,8 +8,6 @@ export const EMAILJS_TEMPLATE_ID_CONTACT =
   process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID || "template_contact";
 export const EMAILJS_TEMPLATE_ID_BOOKING =
   process.env.NEXT_PUBLIC_EMAILJS_BOOKING_TEMPLATE_ID || "template_booking";
-export const EMAILJS_TEMPLATE_ID_DISCOUNT =
-  process.env.NEXT_PUBLIC_EMAILJS_DISCOUNT_TEMPLATE_ID || "template_discount";
 export const EMAILJS_PUBLIC_KEY =
   process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "X4goMuhq2bljUJbgv";
 

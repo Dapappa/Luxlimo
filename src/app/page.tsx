@@ -1,48 +1,10 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Hero from "@/components/ui/Hero";
 import Features from "@/components/ui/Features";
 import Services from "@/components/ui/Services";
 import Testimonials from "@/components/ui/Testimonials";
 import ContactForm from "@/components/ui/ContactForm";
-import SpinWheel from "@/components/ui/SpinWheel";
 
 export default function Home() {
-  const [showSpinWheel, setShowSpinWheel] = useState(false);
-  const [hasShownWheel, setHasShownWheel] = useState(false);
-
-  useEffect(() => {
-    // Check if user has already seen the wheel today
-    const wheelShownToday = localStorage.getItem("wheelShownToday");
-    const today = new Date().toDateString();
-
-    if (wheelShownToday === today) {
-      setHasShownWheel(true);
-      return;
-    }
-
-    const handleScroll = () => {
-      const scrollPercent =
-        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-        100;
-
-      // Show wheel when user scrolls past 25% of page and hasn't seen it today
-      if (scrollPercent > 25 && !hasShownWheel) {
-        setShowSpinWheel(true);
-        setHasShownWheel(true);
-        localStorage.setItem("wheelShownToday", today);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [hasShownWheel]);
-
-  const closeSpinWheel = () => {
-    setShowSpinWheel(false);
-  };
-
   return (
     <div className="min-h-screen bg-secondary-dark">
       <Hero />
@@ -118,8 +80,6 @@ export default function Home() {
       </section>
 
       <Testimonials />
-
-      <SpinWheel isVisible={showSpinWheel} onClose={closeSpinWheel} />
     </div>
   );
 }

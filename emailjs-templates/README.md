@@ -22,20 +22,12 @@ Visit: https://dashboard.emailjs.com/admin/templates
 4. **Subject**: `{{subject}}`
 5. **Email Body**: Copy the entire content from `contact-template.html`
 
-### Step 4: Create Discount/Spin Wheel Template
+### Step 4: Test Your Booking Form
 
-1. Click "Create New Template"
-2. **Template ID**: `template_discount`
-3. **Template Name**: `Lux Limousine Spin Wheel Discount`
-4. **Subject**: `🎉 You Won {{discount_amount}} Off Your Next Luxury Ride!`
-5. **Email Body**: Copy the entire content from `discount-template.html`
-
-### Step 5: Test Your Forms
-
-1. Save all templates in EmailJS
-2. Go to http://localhost:3000/booking to test booking form
-3. Go to http://localhost:3000 and scroll down 25% to test spin wheel
-4. Check for success messages and email delivery
+1. Save both templates in EmailJS
+2. Go to http://localhost:3000/booking
+3. Fill out and submit a test booking
+4. Check for success message and email delivery
 
 ## Template Details
 
@@ -60,18 +52,6 @@ Visit: https://dashboard.emailjs.com/admin/templates
 - **Action Dashboard** - Structured follow-up instructions
 - **Corporate Branding** - Consistent with company identity
 
-### 🎰 Spin-to-Win Discount Template Features:
-
-- **Winner Celebration Design** - Exciting layout with congratulatory elements
-- **Discount Showcase** - Large, prominent discount display with gradients
-- **Discount Code Display** - Monospace code with copy-friendly formatting
-- **Call-to-Action Button** - Prominent booking button with hover effects
-- **Terms & Conditions** - Clear discount usage guidelines
-- **Expiry Information** - Time-limited offer display
-- **Mobile Optimized** - Responsive design for all devices
-- **Brand Consistency** - Matches corporate identity
-- **Rigged System** - Shows "up to 30%" but caps actual discounts at 5%
-
 ### 🎨 Design Elements:
 
 - **Color Scheme**: Gold gradients (#D4AF37 to #B8941F) with dark accents
@@ -85,13 +65,6 @@ Visit: https://dashboard.emailjs.com/admin/templates
 
 If you get "template not found" errors:
 
-1. Make sure Template IDs are exactly: `template_booking`, `template_contact`, and `template_discount`
-2. Ensure all templates are saved in your EmailJS dashboard
+1. Make sure Template IDs are exactly: `template_booking` and `template_contact`
+2. Ensure both templates are saved in your EmailJS dashboard
 3. Check that your Service ID and Public Key are correct in `.env.local`
-
-### Spin Wheel Troubleshooting:
-
-- **Wheel not appearing**: Scroll down past 25% of the homepage
-- **Wheel shows again**: It only shows once per day (stored in localStorage)
-- **Email not sending**: Check EmailJS template ID is `template_discount`
-- **Testing**: Clear localStorage to reset daily limit
