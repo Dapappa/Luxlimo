@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lux Limousine - Booking Confirmation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #2c3e50;
+        background-color: #f8f9fa;
+      }
+
+      .email-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+        color: white;
+        padding: 40px 30px;
+        text-align: center;
+        position: relative;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .header h1 {
+        font-size: 2.2em;
+        font-weight: 300;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .logo-text {
+        font-size: 1.1em;
+        opacity: 0.95;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+      }
+
+      .priority-badge {
+        display: inline-block;
+        background: rgba(231, 76, 60, 0.9);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-size: 0.85em;
+        font-weight: 600;
+        margin-top: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+
+      .content {
+        padding: 40px 30px;
+        background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+      }
+
+      .section {
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        border: 1px solid #e9ecef;
+      }
+
+      .section-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 20px 25px;
+        border-bottom: 2px solid #d4af37;
+        display: flex;
+        align-items: center;
+      }
+
+      .section-icon {
+        width: 24px;
+        height: 24px;
+        background: #d4af37;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 1.3em;
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0;
+      }
+
+      .section-content {
+        padding: 25px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .info-label {
+        font-size: 0.85em;
+        color: #6c757d;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .info-value {
+        font-size: 1.1em;
+        color: #2c3e50;
+        font-weight: 500;
+        padding: 8px 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .booking-summary {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 25px;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        white-space: pre-line;
+        line-height: 1.8;
+        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .action-section {
+        background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+        border: 2px solid #feb2b2;
+        border-radius: 12px;
+        padding: 25px;
+      }
+
+      .action-title {
+        color: #c53030;
+        font-size: 1.4em;
+        font-weight: 700;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .action-icon {
+        margin-right: 10px;
+        font-size: 1.2em;
+      }
+
+      .action-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        white-space: pre-line;
+        line-height: 1.6;
+        border-left: 4px solid #c53030;
+      }
+
+      .footer {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        color: #ffffff;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .company-info {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-weight: 300;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        color: #d4af37;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .contact-item:hover {
+        color: #ffffff;
+      }
+
+      .disclaimer {
+        font-size: 0.85em;
+        color: #888;
+        line-height: 1.4;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #444;
+      }
+
+      @media (max-width: 600px) {
+        .email-container {
+          margin: 10px;
+          border-radius: 8px;
+        }
+
+        .header,
+        .content,
+        .footer {
+          padding: 20px;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">
+        <h1>🚗 {{business_name}}</h1>
+        <p class="logo-text">Premium Transportation Services</p>
+        <div class="priority-badge">{{booking_urgency}}</div>
+      </div>
+
+      <div class="content">
+        <!-- Customer Information Section -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon">👤</div>
+            <h3 class="section-title">Customer Information</h3>
+          </div>
+          <div class="section-content">
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">Full Name</span>
+                <span class="info-value">{{customer_name}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Email Address</span>
+                <span class="info-value">{{customer_email}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Phone Number</span>
+                <span class="info-value">{{customer_phone}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Booking Submitted</span>
+                <span class="info-value">{{submission_date}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Details Section -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon">🚗</div>
+            <h3 class="section-title">Service Details</h3>
+          </div>
+          <div class="section-content">
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">Service Date</span>
+                <span class="info-value">{{service_date}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Service Time</span>
+                <span class="info-value">{{service_time}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Pickup Location</span>
+                <span class="info-value">{{pickup_location}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Dropoff Location</span>
+                <span class="info-value">{{dropoff_location}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Passenger Count</span>
+                <span class="info-value">{{passenger_count}}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Vehicle Type</span>
+                <span class="info-value">{{vehicle_type}}</span>
+              </div>
+            </div>
+            <div style="margin-top: 20px">
+              <div class="info-item">
+                <span class="info-label">Special Requests</span>
+                <span class="info-value">{{special_requests}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Summary Section -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon">📋</div>
+            <h3 class="section-title">Booking Summary</h3>
+          </div>
+          <div class="section-content">
+            <div class="booking-summary">{{booking_summary}}</div>
+          </div>
+        </div>
+
+        <!-- Action Required Section -->
+        <div class="action-section">
+          <div class="action-title">
+            <span class="action-icon">🔔</span>
+            Immediate Action Required
+          </div>
+          <div class="action-content">{{follow_up_instructions}}</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-content">
+          <div class="company-info">
+            <strong>{{business_name}}</strong> - Premium Transportation Services
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">📧 info@luxlimoservice.ca</div>
+            <div class="contact-item">📞 (403) 605-8133</div>
+            <div class="contact-item">🌐 {{website}}</div>
+          </div>
+          <div class="disclaimer">
+            {{email_footer}}<br />
+            This email contains confidential booking information. Please handle
+            with care and respond promptly to ensure excellent customer service.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

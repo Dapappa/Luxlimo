@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
-import { 
-  EMAILJS_SERVICE_ID, 
-  EMAILJS_TEMPLATE_ID_BOOKING, 
-  EMAILJS_PUBLIC_KEY, 
+import {
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_ID_BOOKING,
+  EMAILJS_PUBLIC_KEY,
   CONTACT_EMAIL,
-  BUSINESS_NAME 
+  BUSINESS_NAME,
 } from "@/config/env";
 
 type FormData = {
@@ -56,12 +56,12 @@ export default function BookingForm() {
         weekday: "long",
         year: "numeric",
         month: "long",
-        day: "numeric"
+        day: "numeric",
       });
       const formattedServiceTime = serviceDateTime.toLocaleTimeString("en-CA", {
         hour: "2-digit",
         minute: "2-digit",
-        hour12: true
+        hour12: true,
       });
 
       // Prepare the email template parameters with professional booking formatting
@@ -71,12 +71,12 @@ export default function BookingForm() {
         from_name: data.name,
         reply_to: data.email,
         subject: `🚗 New Luxury Transportation Booking Request - ${BUSINESS_NAME}`,
-        
+
         // Customer information
         customer_name: data.name,
         customer_email: data.email,
         customer_phone: data.phone,
-        
+
         // Service details
         service_date: formattedServiceDate,
         service_time: formattedServiceTime,
@@ -85,7 +85,7 @@ export default function BookingForm() {
         passenger_count: data.passengers,
         vehicle_type: data.vehicle,
         special_requests: data.specialRequests || "None specified",
-        
+
         // Professional email formatting
         business_name: BUSINESS_NAME,
         inquiry_type: "Luxury Transportation Booking",
@@ -95,9 +95,9 @@ export default function BookingForm() {
           day: "numeric",
           hour: "2-digit",
           minute: "2-digit",
-          timeZone: "America/Edmonton"
+          timeZone: "America/Edmonton",
         }),
-        
+
         // Booking summary for easy reference
         booking_summary: `📋 BOOKING SUMMARY:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -112,11 +112,11 @@ export default function BookingForm() {
 🚗 Vehicle: ${data.vehicle}
 💬 Special Requests: ${data.specialRequests || "None"}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-        
+
         // Professional footer information
         website: "https://luxlimoservice.ca",
         email_footer: `This booking request was submitted through the ${BUSINESS_NAME} website booking form.`,
-        
+
         // Follow-up instructions
         follow_up_instructions: `🔔 URGENT: New booking request requires immediate attention!
 
@@ -136,26 +136,63 @@ export default function BookingForm() {
 • Vehicle: ${data.vehicle}
 • Passengers: ${data.passengers}
 
-${data.specialRequests ? `🎯 SPECIAL REQUIREMENTS: ${data.specialRequests}` : ''}`,
-        
+${
+  data.specialRequests ? `🎯 SPECIAL REQUIREMENTS: ${data.specialRequests}` : ""
+}`,
+
         // Service urgency indicator
-        booking_urgency: serviceDateTime < new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) ? "HIGH PRIORITY - Within 7 days" : "STANDARD PRIORITY"
+        booking_urgency:
+          serviceDateTime < new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+            ? "HIGH PRIORITY - Within 7 days"
+            : "STANDARD PRIORITY",
       };
 
+      // Debug: Log EmailJS configuration
+      console.log("=== EMAILJS CONFIG DEBUG ===");
+      console.log("Service ID:", EMAILJS_SERVICE_ID);
+      console.log("Template ID:", EMAILJS_TEMPLATE_ID_BOOKING);
+      console.log(
+        "Public Key:",
+        EMAILJS_PUBLIC_KEY ? "***" + EMAILJS_PUBLIC_KEY.slice(-4) : "MISSING"
+      );
+      console.log("Contact Email:", CONTACT_EMAIL);
+      console.log("Business Name:", BUSINESS_NAME);
+      console.log("===========================");
+
       // Send email using EmailJS
-      await emailjs.send(
+      const emailResult = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID_BOOKING,
         templateParams,
         EMAILJS_PUBLIC_KEY
       );
 
+      console.log("EmailJS Response:", emailResult);
       console.log("Booking submitted successfully:", data);
       setIsSubmitted(true);
       reset();
     } catch (error) {
+      // Enhanced error logging for debugging
+      console.error("=== EMAIL ERROR DEBUG ===");
+      console.error("Full error object:", error);
+      console.error("Error type:", typeof error);
+      console.error("Error stringified:", JSON.stringify(error, null, 2));
+
+      // Try to extract useful error information
+      let errorDetails = "Unknown error";
+      if (error instanceof Error) {
+        errorDetails = error.message;
+      } else if (typeof error === "string") {
+        errorDetails = error;
+      } else if (error && typeof error === "object") {
+        errorDetails = JSON.stringify(error);
+      }
+
+      console.error("Error details:", errorDetails);
+      console.error("========================");
+
       setError(
-        "An error occurred while processing your booking. Please try again later or contact us directly at " + CONTACT_EMAIL + " or call (403) 605-8133"
+        `Booking submission failed. Error: ${errorDetails}. Please contact us directly at ${CONTACT_EMAIL} or call (403) 605-8133`
       );
       console.error("Error sending booking email:", error);
     } finally {
@@ -166,31 +203,66 @@ ${data.specialRequests ? `🎯 SPECIAL REQUIREMENTS: ${data.specialRequests}` : 
   return (
     <div className="bg-secondary-dark p-8 rounded-lg border border-gray-800">
       {isSubmitted ? (
-        <div className="text-center py-8">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-16 w-16 text-primary mx-auto mb-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <h3 className="text-2xl font-bold text-primary mb-2">
-            Booking Received!
+        <div className="text-center py-12">
+          <div className="bg-green-900/20 border border-green-800 rounded-full w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-12 w-12 text-green-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h3 className="text-3xl font-bold text-primary mb-3">
+            ✨ Booking Submitted Successfully!
           </h3>
-          <p className="text-gray-300 mb-6">
-            Thank you for your booking request. We&apos;ll confirm your
-            reservation shortly.
-          </p>
-          <button onClick={() => setIsSubmitted(false)} className="btn-primary">
-            Make Another Booking
-          </button>
+          <div className="bg-secondary-light border border-gray-700 rounded-lg p-6 mb-6 max-w-md mx-auto">
+            <h4 className="text-lg font-semibold text-primary mb-3">
+              What happens next?
+            </h4>
+            <div className="text-left space-y-2 text-gray-300">
+              <div className="flex items-center">
+                <span className="text-primary mr-2">1.</span>
+                <span>We&apos;ll review your booking details</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-primary mr-2">2.</span>
+                <span>Confirm availability within 2 hours</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-primary mr-2">3.</span>
+                <span>Send you a detailed confirmation</span>
+              </div>
+            </div>
+          </div>
+          <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 mb-6 max-w-md mx-auto">
+            <p className="text-primary font-semibold mb-1">
+              📧 Confirmation email sent!
+            </p>
+            <p className="text-gray-300 text-sm">
+              Check your inbox for booking details. We&apos;ll contact you at
+              the phone number provided.
+            </p>
+          </div>
+          <div className="space-y-3">
+            <button
+              onClick={() => setIsSubmitted(false)}
+              className="btn-primary mr-4"
+            >
+              Make Another Booking
+            </button>
+            <p className="text-gray-400 text-sm">
+              Questions? Call us at{" "}
+              <span className="text-primary font-semibold">(403) 605-8133</span>
+            </p>
+          </div>
         </div>
       ) : (
         <>
