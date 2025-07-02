@@ -16,7 +16,7 @@ export default function Home() {
         title="Calgary Stampede 2025 - Special Packages Available!"
       >
         <div className="relative">
-          <StampedeIcon className="w-16 h-16 transform transition-transform group-hover:scale-110" />
+          <StampedeIcon className="w-32 h-32 transform transition-transform group-hover:scale-110" />
           <div className="absolute -top-12 left-0 bg-black text-white px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
             Stampede 2025 Rides!
           </div>
