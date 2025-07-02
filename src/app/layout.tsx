@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Lux Limousine Service | Luxury Transportation in Alberta",
   description:
-    "Experience world-class luxury transportation services with Lux Limousine across Alberta, including Calgary, Edmonton, Red Deer, Banff, Canmore, and Lethbridge.",
+    "Experience world-class luxury transportation services with Lux Limousine across Alberta, including Calgary, Red Deer, Banff, Canmore, and Lethbridge.",
 };
 
 export default function RootLayout({
@@ -29,8 +29,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="antialiased">
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased" suppressHydrationWarning>
         <Navbar />
         <main>{children}</main>
         <Footer />
