@@ -20,6 +20,7 @@ const config: Config = {
           light: "#2D2D2D",
           dark: "#000000",
         },
+        gold: "#FFD700",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],

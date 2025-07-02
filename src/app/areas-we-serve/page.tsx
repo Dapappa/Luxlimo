@@ -21,18 +21,6 @@ export default function AreasWeServePage() {
       image: "/images/locations/calgary-skyline.jpg",
     },
     {
-      name: "Edmonton",
-      description:
-        "Complete luxury transportation services in Alberta's capital city, with full coverage from the airport to downtown and beyond.",
-      landmarks: [
-        "Edmonton International Airport",
-        "Downtown Edmonton",
-        "West Edmonton Mall",
-        "Rogers Place",
-      ],
-      image: "/images/locations/edmonton-skyline.jpg",
-    },
-    {
       name: "Banff",
       description:
         "Experience the breathtaking beauty of Banff in style with our luxury transportation services in this iconic mountain destination.",
@@ -95,7 +83,7 @@ export default function AreasWeServePage() {
     {
       name: "Elk Island",
       description:
-        "Visit this sanctuary of aspen parkland and home to free-roaming bison with our comfortable transportation services just east of Edmonton.",
+        "Visit this sanctuary of aspen parkland and home to free-roaming bison with our comfortable transportation services.",
       landmarks: [
         "Elk Island National Park",
         "Astotin Lake",
@@ -145,19 +133,12 @@ export default function AreasWeServePage() {
   const popularRoutes = [
     { from: "Calgary", to: "Banff", duration: "Approximately 1.5 hours" },
     { from: "Calgary", to: "Lake Louise", duration: "Approximately 2 hours" },
-    { from: "Calgary", to: "Edmonton", duration: "Approximately 3 hours" },
     { from: "Calgary", to: "Canmore", duration: "Approximately 1 hour" },
     { from: "Calgary", to: "Kananaskis", duration: "Approximately 1 hour" },
     {
       from: "Calgary",
       to: "Waterton Lakes",
       duration: "Approximately 2.5 hours",
-    },
-    { from: "Edmonton", to: "Jasper", duration: "Approximately 4 hours" },
-    {
-      from: "Edmonton",
-      to: "Elk Island",
-      duration: "Approximately 45 minutes",
     },
     { from: "Banff", to: "Lake Louise", duration: "Approximately 40 minutes" },
   ];

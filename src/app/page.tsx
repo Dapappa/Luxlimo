@@ -3,10 +3,26 @@ import Features from "@/components/ui/Features";
 import Services from "@/components/ui/Services";
 import Testimonials from "@/components/ui/Testimonials";
 import ContactForm from "@/components/ui/ContactForm";
+import Link from "next/link";
+import StampedeIcon from "@/components/ui/StampedeIcon";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-secondary-dark">
+      {/* Floating Stampede Icon - Moved to left side to avoid overlap with book button */}
+      <Link
+        href="/calgary-stampede-2025"
+        className="fixed bottom-8 left-8 z-50 group"
+        title="Calgary Stampede 2025 - Special Packages Available!"
+      >
+        <div className="relative">
+          <StampedeIcon className="w-16 h-16 transform transition-transform group-hover:scale-110" />
+          <div className="absolute -top-12 left-0 bg-black text-white px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            Stampede 2025 Rides!
+          </div>
+        </div>
+      </Link>
+
       <Hero />
 
       <Features />

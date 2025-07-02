@@ -10,18 +10,25 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import Logo from "@/components/ui/Logo";
+import StampedeIcon from "@/components/ui/StampedeIcon";
 
 // Primary navigation items that will always be visible
 const primaryNavigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Areas We Serve", href: "/areas-we-serve" },
+  { name: "Tours & Experiences", href: "/tours-and-experiences" },
 ];
 
 // Secondary navigation items that will go in the dropdown
 const secondaryNavigation = [
-  { name: "Tours & Experiences", href: "/tours-and-experiences" },
+  { 
+    name: "Calgary Stampede 2025", 
+    href: "/calgary-stampede-2025",
+    icon: true,
+    highlight: true
+  },
+  { name: "Areas We Serve", href: "/areas-we-serve" },
   { name: "G7 Summit Transfers", href: "/g7" }, // Changed to shorter URL for better compatibility
   { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
@@ -114,9 +121,15 @@ export default function Navbar() {
                           key={item.name}
                           href={item.href}
                           onClick={() => setDropdownOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-300 hover:bg-secondary hover:text-primary"
+                          className={clsx(
+                            "block px-4 py-2 text-sm hover:bg-secondary transition-colors",
+                            item.highlight ? "text-primary font-bold" : "text-gray-300 hover:text-primary"
+                          )}
                         >
-                          {item.name}
+                          <div className="flex items-center gap-2">
+                            {item.icon && <StampedeIcon className="w-6 h-6" />}
+                            <span>{item.name}</span>
+                          </div>
                         </Link>
                       ))}
                     </motion.div>
@@ -176,9 +189,15 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-primary"
+                  className={clsx(
+                    "block px-3 py-2 text-base font-medium hover:text-primary",
+                    item.highlight ? "text-primary" : "text-gray-300"
+                  )}
                 >
-                  {item.name}
+                  <div className="flex items-center gap-2">
+                    {item.icon && <StampedeIcon className="w-6 h-6" />}
+                    <span>{item.name}</span>
+                  </div>
                 </Link>
               ))}
 
