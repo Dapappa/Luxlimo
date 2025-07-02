@@ -32,10 +32,8 @@ const nextConfig = {
     ];
   },
 
-  // Configure server to bind to localhost
-  experimental: {
-    serverComponentsExternalPackages: [],
-  },
+  // Configure external packages
+  serverExternalPackages: [],
 };
 
 export default nextConfig;

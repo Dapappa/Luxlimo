@@ -1,12 +1,11 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import Container from '@/components/ui/Container'
+import Image from "next/image";
+import Link from "next/link";
+import Container from "@/components/ui/Container";
 
 interface StampedeHeroProps {
-  daysUntilStampede: number
+  daysUntilStampede: number;
 }
 
 export default function StampedeHero({ daysUntilStampede }: StampedeHeroProps) {
@@ -37,7 +36,9 @@ export default function StampedeHero({ daysUntilStampede }: StampedeHeroProps) {
           {daysUntilStampede > 0 && (
             <div className="mb-6 inline-flex items-center gap-2 bg-black/50 backdrop-blur-sm rounded-full px-6 py-3 border border-gold/30">
               <span className="text-gold font-medium">🎯</span>
-              <span className="text-white font-bold text-lg">{daysUntilStampede}</span>
+              <span className="text-white font-bold text-lg">
+                {daysUntilStampede}
+              </span>
               <span className="text-gold">days until Stampede!</span>
             </div>
           )}
@@ -67,7 +68,11 @@ export default function StampedeHero({ daysUntilStampede }: StampedeHeroProps) {
               Book Your Stampede Ride
             </Link>
             <button
-              onClick={() => document.getElementById('planner')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("planner")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="w-full sm:w-auto px-8 py-4 bg-gold/20 backdrop-blur-sm text-gold border-2 border-gold rounded-full text-lg font-bold hover:bg-gold hover:text-black transition-all transform hover:scale-105"
             >
               Get Instant Quote
@@ -99,10 +104,20 @@ export default function StampedeHero({ daysUntilStampede }: StampedeHeroProps) {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg className="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        <svg
+          className="w-6 h-6 text-gold"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
         </svg>
       </div>
     </section>
-  )
+  );
 }
