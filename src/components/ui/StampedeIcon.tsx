@@ -14,42 +14,32 @@ export default function StampedeIcon({
       <div className="absolute inset-0 bg-red-600 rounded-full animate-ping opacity-30" />
       <div className="absolute inset-0 bg-yellow-500 rounded-full animate-pulse opacity-20 animation-delay-500" />
 
-      {/* Calgary Stampede Cowboy Hat icon */}
-      <div className="relative bg-gradient-to-br from-red-600 to-red-800 rounded-full p-4 shadow-2xl animate-pulse">
+      {/* Calgary Stampede CS Logo */}
+      <div className="relative bg-white rounded-full p-3 shadow-2xl animate-pulse">
         <svg
-          width="40"
-          height="40"
-          viewBox="0 0 48 48"
+          width="44"
+          height="44"
+          viewBox="0 0 100 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="text-white"
         >
-          {/* Cowboy Hat Brim */}
-          <ellipse
-            cx="24"
-            cy="38"
-            rx="20"
-            ry="6"
-            fill="currentColor"
-            className="drop-shadow-lg"
-          />
-          {/* Hat Crown */}
+          {/* Letter C */}
           <path
-            d="M12 32C12 32 14 12 24 12C34 12 36 32 36 32"
-            fill="currentColor"
-            stroke="#8B4513"
-            strokeWidth="1"
+            d="M50 15C67.6 15 82 29.4 82 47C82 64.6 67.6 79 50 79C45.2 79 40.7 77.8 36.8 75.7L44.2 63.8C46.7 65.2 48.3 65.5 50 65.5C59.8 65.5 67.5 57.8 67.5 47C67.5 37.2 59.8 28.5 50 28.5C46.8 28.5 43.9 29.7 41.5 31.6L34.1 19.7C39.2 16.8 44.4 15 50 15Z"
+            fill="#E53E3E"
           />
-          {/* Hat Band */}
-          <ellipse cx="24" cy="30" rx="12" ry="2" fill="#8B4513" />
-          {/* Hat Crown Top */}
-          <ellipse cx="24" cy="18" rx="8" ry="12" fill="currentColor" />
-          {/* Hat Highlight */}
-          <ellipse cx="20" cy="20" rx="2" ry="6" fill="#FFD700" opacity="0.7" />
-          {/* Western Star on Hat */}
+
+          {/* Letter S */}
           <path
-            d="M24 22L25.236 26.764L30 25L26.764 24L30 23L25.236 21.236L24 16L22.764 21.236L18 23L21.236 24L18 25L22.764 26.764L24 22Z"
-            fill="#FFD700"
+            d="M30 55C30 47.8 35.8 42 43 42H47C51.4 42 55 45.6 55 50C55 54.4 51.4 58 47 58H40C36.7 58 34 60.7 34 64C34 67.3 36.7 70 40 70H52C58.6 70 64 75.4 64 82C64 88.6 58.6 94 52 94H38C28.1 94 20 85.9 20 76C20 69.4 24.2 63.9 30 61.2V55Z"
+            fill="#E53E3E"
+          />
+
+          {/* Highlight/Shine effect */}
+          <path
+            d="M40 25C42.5 22.5 45.5 21 49 21C55.5 21 61.2 25.2 63.8 31.5C64.5 30.2 65 28.7 65 27C65 22.6 61.4 19 57 19C52.6 19 49 22.6 49 27C49 26.2 44.5 24.8 40 25Z"
+            fill="#FF6B6B"
+            opacity="0.6"
           />
         </svg>
       </div>
