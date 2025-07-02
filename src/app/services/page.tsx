@@ -6,7 +6,7 @@ const services = [
     id: "airport-transfers",
     title: "Airport Transfers",
     description:
-      "Start and end your journey in comfort and style with our premium airport transfer service. We monitor flight arrivals to ensure we're there waiting for you, regardless of delays. Our professional chauffeurs will assist with your luggage and provide a stress-free ride to or from the airport.",
+      "Start and end your journey in comfort and style with our premium airport transfer service. We monitor flight arrivals to ensure we&#39;re there waiting for you, regardless of delays. Our professional chauffeurs will assist with your luggage and provide a stress-free ride to or from the airport.",
     features: [
       "Flight monitoring for on-time pickup",
       "Assistance with luggage",
@@ -34,7 +34,7 @@ const services = [
     id: "special-events",
     title: "Special Events",
     description:
-      "Whether it's a birthday, anniversary, graduation, or any other special occasion, our limousine service adds an extra touch of luxury. Make a statement and create lasting memories as you arrive at your destination in style and comfort.",
+      "Whether it&#39;s a birthday, anniversary, graduation, or any other special occasion, our limousine service adds an extra touch of luxury. Make a statement and create lasting memories as you arrive at your destination in style and comfort.",
     features: [
       "Custom itineraries available",
       "Various vehicle options to suit your group size",
@@ -76,7 +76,7 @@ const services = [
     id: "out-of-town",
     title: "Out of Town Transfer",
     description:
-      "Explore Alberta's beautiful destinations like Banff, Canmore, Lake Louise, and beyond in comfort and style. Our long-distance transportation services allow you to enjoy the scenery while we handle the driving. Perfect for tourist excursions or business trips between cities.",
+      "Explore Alberta&#39;s beautiful destinations like Banff, Canmore, Lake Louise, and beyond in comfort and style. Our long-distance transportation services allow you to enjoy the scenery while we handle the driving. Perfect for tourist excursions or business trips between cities.",
     features: [
       "Comfortable vehicles for long journeys",
       "Professional drivers familiar with all routes",

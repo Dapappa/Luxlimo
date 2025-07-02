@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     name: "David R.",
-    text: "Artist transport was discrete and professional. They understand our industry's needs.",
+    text: "Artist transport was discrete and professional. They understand our industry&#39;s needs.",
     rating: 5,
   },
 ];

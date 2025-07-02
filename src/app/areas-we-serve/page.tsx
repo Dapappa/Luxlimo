@@ -107,7 +107,7 @@ export default function AreasWeServePage() {
     {
       name: "Red Deer",
       description:
-        "Central Alberta's major urban centre, our services cover all transportation needs in and around Red Deer.",
+        "Central Alberta&#39;s major urban centre, our services cover all transportation needs in and around Red Deer.",
       landmarks: [
         "Red Deer Regional Airport",
         "Westerner Park",
@@ -119,7 +119,7 @@ export default function AreasWeServePage() {
     {
       name: "Lethbridge",
       description:
-        "Serving Southern Alberta's commercial center with our premium transportation services for any occasion.",
+        "Serving Southern Alberta&#39;s commercial center with our premium transportation services for any occasion.",
       landmarks: [
         "Lethbridge Airport",
         "University of Lethbridge",

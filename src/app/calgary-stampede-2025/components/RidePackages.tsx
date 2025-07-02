@@ -189,7 +189,9 @@ export default function RidePackages() {
           <div>
             <div className="text-3xl mb-2">📸</div>
             <h4 className="font-bold text-white mb-1">Professional Photos</h4>
-            <p className="text-sm text-gray-400">Capture your group's style</p>
+            <p className="text-sm text-gray-400">
+              Capture your group&#39;s style
+            </p>
           </div>
           <div>
             <div className="text-3xl mb-2">🎯</div>
